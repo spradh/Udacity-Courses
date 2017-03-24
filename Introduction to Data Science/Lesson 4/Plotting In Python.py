@@ -23,5 +23,5 @@ def lineplot(hr_year_csv):
     # https://github.com/yhat/ggplot/
     
     df = pandas.read_csv(hr_year_csv)
-    gg = ggplot(df,aes(x='yearID',y='HR'))+geom_point(color='red')+geom_line(color='red')
+    gg = ggplot(df,aes(x='yearID',y='HR'))+geom_point(color='red')+geom_line(color='red')+xlab('Year')+ylab('HR')+ggtitle('HR per Year')
     return gg

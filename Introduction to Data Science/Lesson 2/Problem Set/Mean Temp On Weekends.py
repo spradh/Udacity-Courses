@@ -29,7 +29,8 @@ def avg_weekend_temperature(filename):
     weather_data = pandas.read_csv(filename)
 
     q = """
-    select avg(meantempi) from weather_data where cast(strftime('w%',date) as integer)=0 or cast(strftime('w%',date) as integer)=6;
+    select avg(cast (meantempi as integer) ) from weather_data 
+    where cast (strftime('%w', date) as integer)=0 or cast (strftime('%w', date) as integer)=6;
     """
     
     #Execute your SQL command against the pandas frame

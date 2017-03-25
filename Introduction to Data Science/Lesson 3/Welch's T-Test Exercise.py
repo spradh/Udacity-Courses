@@ -21,7 +21,7 @@ def compare_averages(filename):
     or implement Welch's t-test:
     http://docs.scipy.org/doc/scipy/reference/stats.html
     
-    With a significance level of 95%, if there is no difference
+    With a confidence level of 95%, if there is no difference
     between the two cohorts, return a tuple consisting of
     True, and then the tuple returned by scipy.stats.ttest.  
     

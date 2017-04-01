@@ -18,7 +18,10 @@ def extract_airports(page):
     with open(page, "r") as html:
         # do something here to find the necessary values
         soup = BeautifulSoup(html, "lxml")
-
+        airport_list=soup.find(id='AirportList')
+        for option in airport_list.find_all('option'):
+            if option['value'] not in ['AllMajors','All','AllOthers']:
+                data.append(option['value'])
     return data
 
 

@@ -78,6 +78,16 @@ def process_file(f):
     with open("{}/{}".format(datadir, f), "r") as html:
 
         soup = BeautifulSoup(html)
+        #flight_table = soup.find('table', class='dataTDRight')
+        rows = soup.find_all('tr', 'dataTDRight')
+        for row in rows:
+            tds = row.find_all('td')
+            if tds[1].text != 'TOTAL':
+                info['year'] = int(tds[0].text)
+                info['month'] = int(tds[1].text)
+                info['flights'] = {'domestic': int(tds[2].text.replace(',','')), 
+                                   'international': int(tds[3].text.replace(',',''))}
+                data.append(info.copy())
 
     return data
 

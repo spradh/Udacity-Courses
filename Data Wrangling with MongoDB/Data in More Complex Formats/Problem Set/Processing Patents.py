@@ -23,7 +23,15 @@ def split_file(filename):
     The new files should be saved with filename in the following format:
     "{}-{}".format(filename, n) where n is a counter, starting from 0.
     """
-
+    with open(filename,'r') as file:
+        n=0
+        for line in file:
+            line=line.strip()
+            if line.strip()=='<?xml version="1.0" encoding="UTF-8"?>':
+                name="{}-{}".format(filename,n)
+                target = open(name, 'w')
+                n+=1
+            target.write(line)    
     pass
 
 

@@ -10,7 +10,7 @@ def get_mean_volume(symbol):
     """
     df = pd.read_csv("data/{}.csv".format(symbol))  # read in data
     # TODO: Compute and return the mean volume for this stock
-    return np.mean(df['Close'])
+    return np.mean(df['Volume'])
 
 def test_run():
     """Function called by Test Run."""

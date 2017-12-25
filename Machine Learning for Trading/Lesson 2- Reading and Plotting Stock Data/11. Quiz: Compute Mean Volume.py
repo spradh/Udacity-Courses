@@ -1,7 +1,6 @@
 """Compute mean volume"""
 
 import pandas as pd
-import numpy as np
 
 def get_mean_volume(symbol):
     """Return the mean volume for stock indicated by symbol.
@@ -10,7 +9,7 @@ def get_mean_volume(symbol):
     """
     df = pd.read_csv("data/{}.csv".format(symbol))  # read in data
     # TODO: Compute and return the mean volume for this stock
-    return np.mean(df['Volume'])
+    return df['Volume'].mean()
 
 def test_run():
     """Function called by Test Run."""
